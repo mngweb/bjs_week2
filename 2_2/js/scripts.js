@@ -98,7 +98,7 @@ musisz znaleźć sposób, jak sprawdzić czy string ten zawiera wyłącznie licz
 
     // Główna funkcja walidująca wszystkie pola
     FormValidator.prototype.validate = function(){
-        var text_inputs = this.form.querySelectorAll("input[type=text], textarea"),
+        var text_inputs = this.form.querySelectorAll("input[type=text]:not(.number), textarea"),
             email_input = this.form.querySelectorAll("input[type=email]"),
             number_inputs = this.form.querySelectorAll("input[type=text].number"),
             password_inputs = this.form.querySelectorAll("input[type=password]");   
