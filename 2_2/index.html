@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Zadanie</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <div class="container" novalidate>
+        <form action="" class="form">
+            <div class="form--row">
+                <label for="imie">Podaj imię:</label>
+                <input type="text" name="imie" class="text" data-error="Podaj imie.">
+                <div class="error--message hidden"></div>
+            </div>
+            <div class="form--row">            
+                <label for="email">Podaj email:</label>
+                <input type="email" name="email" class="email" data-error="Podaj email.">
+                 <div class="error--message hidden"></div>
+            </div>
+            <div class="form--row">            
+                <label for="password">Podaj hasło:</label>
+                <input type="password" name="password" class="password" data-error="Podaj hasło (przynajmniej 5 znaków).">
+                 <div class="error--message hidden"></div>
+            </div>            
+            <div class="form--row">               
+                <label for="number">Podaj wiek:</label>
+                <input type="text" name="number" class="number" data-error="Podaj wiek (0-100).">
+                 <div class="error--message hidden"></div>
+            </div>
+            <div class="form--row">               
+                <label for="textarea">Wypisz swoje zainteresowania:</label>
+                <textarea name="textarea" class="text"  data-error="Podaj zainteresowania."></textarea>
+                <div class="error--message hidden"></div>
+            </div>
+            <button type="submit" class="btn-submit">Wyślij</button>
+        </form>
+    </div>
+
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 90%;
+    max-width: 900px;
+    margin: 20px auto;
+}
+
+.form--row {
+    display: flex;
+    margin: 10px 0;
+}
+
+input, textarea{
+    margin-left: 5px;
+}
+
+.invalid{
+    border: 1px solid red;
+}
+
+.error--message{
+    margin-left: 10px;
+    color: red;
+}
+
+.errors--summary{
+    padding: 5px;
+    margin: 5px 0;
+    color: red;
+    background-color: rgb(230,230,230);
+}
+
+.errors--summary ul{
+    list-style-position: inside;
+}
