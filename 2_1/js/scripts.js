@@ -14,7 +14,7 @@ treść” i na odwrót
 
 
 
-    //// WERSJA 1 - NIEOBIEKTOWA:
+    //// WERSJA 1:
     // function toggle(e){
     //     tab.classList.toggle('hidden');
     //     e.target.textContent = (e.target.textContent ===  "Pokaż treść") ? "Ukryj treść" : "Pokaż treść";
@@ -25,7 +25,7 @@ treść” i na odwrót
 
 
 
-    //// WERSJA 2 - OBIEKTOWA:
+    //// WERSJA 2:
     function Toggler(elem, btn){
 
         if(!(this instanceof Toggler) ){
