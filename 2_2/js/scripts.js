@@ -65,6 +65,13 @@ musisz znaleźć sposób, jak sprawdzić czy string ten zawiera wyłącznie licz
         elem.nextElementSibling.textContent = "";    
     }
 
+    FormValidator.prototype.showErrors = function(elem, isValid){
+        if( isValid ){
+            this.invalid(elem)
+        }else{
+            this.valid(elem);
+        }
+    }    
 
     // Dodatkowe pokazanie podsumowania błędów dla wszystkich pól
     FormValidator.prototype.displayErrors = function(errors_arr){
@@ -108,37 +115,19 @@ musisz znaleźć sposób, jak sprawdzić czy string ten zawiera wyłącznie licz
         this.errors_arr = [];
 
         text_inputs.forEach(function(elem){
-            if( self.isEmpty(elem) ){
-                self.invalid(elem)   
-            }
-            else{
-                self.valid(elem);
-            }
+            self.showErrors(elem, self.isEmpty(elem))
         });
 
         email_input.forEach(function(elem){
-            if( self.isEmail(elem) ){
-                self.invalid(elem)  
-            }else{
-                self.valid(elem);
-            }
+            self.showErrors(elem, self.isEmail(elem)) 
         });
 
         password_inputs.forEach(function(elem){
-            if( self.isEmpty(elem) || !self.hasMinLength(elem, 5) ){
-                self.invalid(elem)  
-            }
-            else{
-                self.valid(elem);
-            }
+            self.showErrors(elem, self.isEmpty(elem) || !self.hasMinLength(elem, 5))  
         });
 
         number_inputs.forEach(function(elem){   
-            if( self.isEmpty(elem) || !self.isNumber(elem) || !self.isAge(elem)){
-                self.invalid(elem) 
-            }else{
-                self.valid(elem);
-            }
+            self.showErrors(elem, self.isEmpty(elem) || !self.isNumber(elem) || !self.isAge(elem)) 
         });
 
         self.displayErrors(self.errors_arr);
