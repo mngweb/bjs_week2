@@ -17,28 +17,36 @@ którą wykonałbyś wyłącznie raz.
 
 (function() {
 
+    var counter = document.querySelector("#counter"),
+        btn = document.querySelector("#btn");
+
+
+    function counting(number){
+        counter.textContent = number;
+        btn.setAttribute("disabled", true);
+    }
 
     function ending(){
-        console.log("Odliczanie zakończone!");
+        counter.textContent = "Odliczanie zakończone!";
+        btn.removeAttribute("disabled");
     }
 
-    function counting(callback){
+    function start(callback){
 
-        for( var i = 10; i >= 0; i-- ){
-            setTimeout(function(j){
+        var max_count = 10;
+
+        for( var i = max_count; i >= 0; i-- ){
+            setTimeout(function(j){ 
                 return function(){
-                    console.log(j);
+                    counting(j);
+                    if(j <= 0) callback();
                 }
-            }(i), 1000); 
-
-            if(i===0)  callback();
+            }(i), (max_count-i)*1000); 
 
         }   
-
+        
     }
 
-
-    counting(ending);
-
+    btn.addEventListener('click',  start.bind(this, ending), false);
 
 })();
