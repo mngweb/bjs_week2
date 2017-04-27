@@ -18,8 +18,9 @@ którą wykonałbyś wyłącznie raz.
 (function() {
 
     var counter = document.querySelector("#counter"),
-        btn = document.querySelector("#btn");
-
+        btn = document.querySelector("#btn"),
+        max_count = 10,
+        count = max_count;
 
     function counting(number){
         counter.textContent = number;
@@ -29,22 +30,20 @@ którą wykonałbyś wyłącznie raz.
     function ending(){
         counter.textContent = "Odliczanie zakończone!";
         btn.removeAttribute("disabled");
+        count = max_count;
     }
-
-
-    var count = 10;
 
     function start(callback){
 
         //// WERSJA 1
-        for( var i = count; i >= 0; i-- ){
+        for( var i = max_count; i >= 0; i-- ){
 
             setTimeout(function(j){ 
                 return function(){
                     counting(j);
                     if(j <= 0) callback();
                 }
-            }(i), (count-i)*1000); 
+            }(i), (max_count-i)*1000); 
 
         }   
 
@@ -60,6 +59,8 @@ którą wykonałbyś wyłącznie raz.
         //     }
 
         // }, 1000); 
+
+
 
     }
 
