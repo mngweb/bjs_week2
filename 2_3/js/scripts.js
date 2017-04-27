@@ -31,20 +31,36 @@ którą wykonałbyś wyłącznie raz.
         btn.removeAttribute("disabled");
     }
 
+
+    var count = 10;
+
     function start(callback){
 
-        var max_count = 10;
+        //// WERSJA 1
+        for( var i = count; i >= 0; i-- ){
 
-        for( var i = max_count; i >= 0; i-- ){
             setTimeout(function(j){ 
                 return function(){
                     counting(j);
                     if(j <= 0) callback();
                 }
-            }(i), (max_count-i)*1000); 
+            }(i), (count-i)*1000); 
 
         }   
-        
+
+
+        //// WERSJA 2
+        // setTimeout(function(){    
+
+        //     if(count <= 0){
+        //         callback();
+        //     } else {
+        //         counting(count--);     
+        //         start(callback);
+        //     }
+
+        // }, 1000); 
+
     }
 
     btn.addEventListener('click',  start.bind(this, ending), false);
