@@ -48,7 +48,7 @@ którą wykonałbyś wyłącznie raz.
 
         }, 1000); 
 
-        //// WERSJA 
+        //// WERSJA 2
         // for( var i = max_count; i >= 0; i-- ){
 		
         //     setTimeout(function(j){ 
