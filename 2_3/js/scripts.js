@@ -33,34 +33,32 @@ którą wykonałbyś wyłącznie raz.
         count = max_count;
     }
 
-    function start(callback){
+	
+	function start(callback){
+		
+        // WERSJA 1
+        setTimeout(function(){    
 
-        //// WERSJA 1
-        for( var i = max_count; i >= 0; i-- ){
+            if(count <= 0){
+                callback();
+            } else {
+                counting(count--);     
+                start(callback);
+            }
 
-            setTimeout(function(j){ 
-                return function(){
-                    counting(j);
-                    if(j <= 0) callback();
-                }
-            }(i), (max_count-i)*1000); 
+        }, 1000); 
 
-        }   
+        //// WERSJA 
+        // for( var i = max_count; i >= 0; i-- ){
+		
+        //     setTimeout(function(j){ 
+        //         return function(){
+        //             counting(j);
+        //             if(j <= 0) callback();
+        //         }
+        //     }(i), (max_count-i)*1000); 
 
-
-        //// WERSJA 2
-        // setTimeout(function(){    
-
-        //     if(count <= 0){
-        //         callback();
-        //     } else {
-        //         counting(count--);     
-        //         start(callback);
-        //     }
-
-        // }, 1000); 
-
-
+        // }   
 
     }
 
